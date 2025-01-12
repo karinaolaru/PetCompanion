@@ -13,11 +13,11 @@ const App: React.FC = () => {
     const isLoggedIn = localStorage.getItem('loggedIn'); // Check local storage for login status
 
     if (isLoggedIn) {
-      if (window.location.pathname === '/') {
-        navigate('/PetCompanion/fun-facts'); // Redirect to FunFacts if logged in and is trying to access the landing page
+      if (window.location.pathname === '/PetCompanion') {
+        navigate('/fun-facts'); // Redirect to FunFacts if logged in and is trying to access the landing page
       }
     } else {
-      navigate('/PetCompanion'); // Redirect to LandingPage if not logged in
+      navigate('/'); // Redirect to LandingPage if not logged in
     }
   }, [navigate]);
 
