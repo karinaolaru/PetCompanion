@@ -14,10 +14,10 @@ const App: React.FC = () => {
 
     if (isLoggedIn) {
       if (window.location.pathname === '/') {
-        navigate('/fun-facts'); // Redirect to FunFacts if logged in and is trying to access the landing page
+        navigate('/PetCompanion/fun-facts'); // Redirect to FunFacts if logged in and is trying to access the landing page
       }
     } else {
-      navigate('/'); // Redirect to LandingPage if not logged in
+      navigate('/PetCompanion'); // Redirect to LandingPage if not logged in
     }
   }, [navigate]);
 
