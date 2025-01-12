@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
     if (isLoggedIn) {
       console.log(window.location.pathname)
-      if (window.location.pathname === '/PetCompanion') {
+      if (window.location.pathname.startsWith('/PetCompanion')) {
         navigate('/fun-facts'); // Redirect to FunFacts if logged in and is trying to access the landing page
       }
     } else {
