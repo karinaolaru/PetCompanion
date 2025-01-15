@@ -29,4 +29,9 @@ To run the application, use the following command:
 ```bash
 npm run dev
 ```
-This will start the development server, and you can access the application at `http://localhost:3000`.
+This will start the development server, and you can access the application at `http://localhost:5173/PetCompanion`.
+
+# References
+
+For the notes page: https://github.com/chrisblakely01/react-notes-app/blob/master/src/components/NotesList.js
+For the Material components: https://mui.com/material-ui/
