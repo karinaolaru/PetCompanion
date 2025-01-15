@@ -12,6 +12,8 @@ const Menu: React.FC = () => {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/fun-facts">Fun Facts</Link></li>
           <li><Link to="/pet-profile">Pet Profile</Link></li>
+          <li><Link to="/notes">Notes</Link></li>
+          <li><Link to="/" onClick={() => localStorage.clear()}>Logout</Link></li>
         </ul>
       </Toolbar>
     </AppBar>

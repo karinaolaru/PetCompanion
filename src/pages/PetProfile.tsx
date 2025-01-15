@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextField, Button, Typography, Container, Box } from '@mui/material';
+import { TextField, Button, Typography, Box } from '@mui/material';
 
 type PetProfileState = {
   petName: string;
@@ -55,61 +55,62 @@ const PetProfile: React.FC = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography component="h1" variant="h5">
-          Pet Profile
-        </Typography>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Pet Name"
-          value={profile.petName}
-          onChange={(e) => setProfile((prev) => ({ ...prev, petName: e.target.value }))}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Date of Birth"
-          type="date"
-          value={profile.dob}
-          onChange={(e) => setProfile((prev) => ({ ...prev, dob: e.target.value }))}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Breed"
-          value={profile.breed}
-          onChange={(e) => setProfile((prev) => ({ ...prev, breed: e.target.value }))}
-        />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-        />
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={handleSaveProfile}
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Save Profile
-        </Button>
+    <Box maxWidth="xs" sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+      <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '50vw' }}>
+        <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography component="h1" variant="h5">
+            Pet Profile
+          </Typography>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Pet Name"
+            value={profile.petName}
+            onChange={(e) => setProfile((prev) => ({ ...prev, petName: e.target.value }))}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Date of Birth"
+            type="date"
+            value={profile.dob}
+            onChange={(e) => setProfile((prev) => ({ ...prev, dob: e.target.value }))}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Breed"
+            value={profile.breed}
+            onChange={(e) => setProfile((prev) => ({ ...prev, breed: e.target.value }))}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={handleSaveProfile}
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Save Profile
+          </Button>
+        </Box>
       </Box>
       {profile.image && (
         <img
           src={`data:image/png;base64,${profile.image}`}
           alt="Pet"
-          style={{ marginLeft: '20px', maxWidth: '200px', maxHeight: '200px' }}
         />
       )}
-    </Container>
+    </Box>
   );
 };
 
