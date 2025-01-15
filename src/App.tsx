@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Menu from './components/menu/Menu'; // Importing the Menu component
 import Notes from './pages/Notes'; // Importing the Notes component
 import PetProfile from './pages/PetProfile';
 import FunFacts from './pages/FunFacts';
