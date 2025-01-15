@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { TextField, Button, Typography, Container, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,8 +8,9 @@ const LandingPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (email.includes('@') && password.length > 8) {
+  const handleLogin = (e: FormEvent) => {
+    e.preventDefault();
+    if (password.length > 8) {
       localStorage.setItem('loggedIn', 'true');
       navigate('/fun-facts');
     } else {
@@ -26,31 +27,35 @@ const LandingPage: React.FC = () => {
         <Typography variant="body1" align="center" sx={{ mt: 2 }}>
           Keep track of your pet's needs, appointments, and fun facts!
         </Typography>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={handleLogin}
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Login
-        </Button>
+
+        <form onSubmit={handleLogin}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              label="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Login
+            </Button>
+        </form>
       </Box>
     </Container>
   );
